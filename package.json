@@ -3,16 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "build-electron": "tsc --project tsconfig.electron.json",
-    "start": "vite dev",
-    "electron": "npm run build-electron && electron .",
-    "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && npm run electron\""
-  },
+"scripts": {
+  "dev": "vite",
+  "build": "tsc -b && vite build",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "build-electron": "tsc --project tsconfig.electron.json && mv dist-electron/electron.js dist-electron/electron.cjs",
+  "start": "vite dev",
+  "electron": "npm run build-electron && xvfb-run electron --headless dist-electron/electron.cjs", 
+  "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && npm run electron\""
+},
   "dependencies": {
     "concurrently": "^9.0.1",
     "electron": "^33.0.2",

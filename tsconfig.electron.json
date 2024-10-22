@@ -1,16 +1,13 @@
 {
     "compilerOptions": {
       "target": "ES2020",
-      "module": "CommonJS",
-      "outDir": "dist-electron",   // Output directory for Electron's compiled files
+      "module": "CommonJS", 
+      "outDir": "dist-electron",
       "strict": true,
       "esModuleInterop": true,
       "moduleResolution": "node"
     },
-    "include": [
-      "electron.ts",               // Include main Electron process file
-      "preload.ts"                 // If using TypeScript for preload
-    ],
+    "include": ["electron.ts"],
     "exclude": ["node_modules"]
   }
   
