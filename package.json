@@ -3,21 +3,24 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-"scripts": {
-  "dev": "vite",
-  "build": "tsc -b && vite build",
-  "lint": "eslint .",
-  "preview": "vite preview",
-  "build-electron": "tsc --project tsconfig.electron.json && mv dist-electron/electron.js dist-electron/electron.cjs",
-  "start": "vite dev",
-  "electron": "npm run build-electron && xvfb-run electron --headless dist-electron/electron.cjs", 
-  "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && npm run electron\""
-},
+  "scripts": {
+    "copy-cesium": "cp -r node_modules/cesium/Build/Cesium/ public/cesium/",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "build-electron": "tsc --project tsconfig.electron.json && mv dist-electron/electron.js dist-electron/electron.cjs",
+    "start": "vite dev",
+    "electron": "npm run build-electron && xvfb-run electron --headless dist-electron/electron.cjs",
+    "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && npm run electron\""
+  },
   "dependencies": {
+    "cesium": "^1.122.0",
     "concurrently": "^9.0.1",
     "electron": "^33.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "resium": "^1.18.3",
     "wait-on": "^8.0.1"
   },
   "devDependencies": {
